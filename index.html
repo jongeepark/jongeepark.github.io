@@ -3,179 +3,472 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prof. Jongee Park</title>
-
+<title>Jongee Park — Atilim University</title>
+<meta name="description" content="Jongee Park, Professor, Department of Metallurgical and Materials Engineering, Atilim University. Photocatalysis, dental ceramics, DFT, energy materials.">
 <style>
+  :root {
+    --text: #222;
+    --muted: #666;
+    --link: #1a5dab;
+    --line: #e5e5e5;
+    --accent: #1a5dab;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
 
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#fafafa;
-    color:#333;
-}
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 8px;
+  }
+  header img.photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  header .initials {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: #f0f3f7;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  h1 { font-size: 30px; font-weight: normal; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); margin-bottom: 10px; }
+  .links a {
+    color: var(--link);
+    text-decoration: none;
+    margin-right: 14px;
+    font-size: 15px;
+  }
+  .links a:hover { text-decoration: underline; }
 
-header{
-    background:#17375E;
-    color:white;
-    padding:70px 20px;
-    text-align:center;
-}
+  /* ---------- Nav ---------- */
+  nav {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 24px 0 32px;
+    padding: 10px 0;
+  }
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-right: 22px;
+    font-size: 15px;
+  }
+  nav a:hover { color: var(--link); }
 
-header h1{
-    font-size:48px;
-    margin-bottom:10px;
-}
+  /* ---------- Sections ---------- */
+  section { margin-bottom: 44px; }
+  h2 {
+    font-size: 21px;
+    font-weight: normal;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+  h3.year {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: bold;
+    margin: 20px 0 8px;
+  }
+  p { margin-bottom: 12px; }
+  a { color: var(--link); }
 
-header h2{
-    font-weight:normal;
-    margin-top:0;
-}
+  ul.plain { list-style: none; }
+  ul.plain li { margin-bottom: 10px; padding-left: 0; }
 
-.container{
-    width:900px;
-    max-width:90%;
-    margin:auto;
-    padding:50px 0;
-}
+  /* ---------- Publications ---------- */
+  ol.pubs { list-style: none; counter-reset: none; }
+  ol.pubs li {
+    margin-bottom: 14px;
+    padding-left: 0;
+  }
+  .pub-title { font-weight: bold; }
+  .pub-authors { display: block; font-size: 15px; }
+  .pub-venue { display: block; font-size: 15px; color: var(--muted); font-style: italic; }
+  .me { text-decoration: underline; }
 
-section{
-    margin-bottom:60px;
-}
+  details {
+    margin-top: 24px;
+  }
+  details summary {
+    cursor: pointer;
+    color: var(--link);
+    font-size: 16px;
+    padding: 6px 0;
+  }
+  details summary:hover { text-decoration: underline; }
+  details[open] summary { margin-bottom: 8px; }
 
-h3{
-    color:#17375E;
-    border-bottom:2px solid #17375E;
-    padding-bottom:10px;
-}
+  /* ---------- Education / lists ---------- */
+  .item { margin-bottom: 10px; }
+  .item .when { color: var(--muted); font-size: 15px; }
 
-.research{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    color: var(--muted);
+    font-size: 14px;
+  }
 
-.card{
-    background:white;
-    border-radius:10px;
-    padding:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
-
-footer{
-    text-align:center;
-    padding:40px;
-    background:#17375E;
-    color:white;
-}
-
+  @media (max-width: 560px) {
+    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
 </style>
-
 </head>
-
 <body>
-
-<header>
-
-<h1>Prof. Jongee Park</h1>
-
-<h2>Professor | Atılım University</h2>
-
-<p>
-
-My research spans ceramic processing, computational materials science,
-and artificial intelligence, with a focus on advancing ceramic materials
-through first-principles calculations and exploring AI for Korean Studies.
-
-</p>
-
-</header>
-
 <div class="container">
 
-<section>
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <img class="photo" src="photo.jpg" alt="Jongee Park"
+         onerror="this.outerHTML='&lt;div class=&quot;initials&quot;&gt;JP&lt;/div&gt;'">
+    <div>
+      <h1>Jongee Park</h1>
+      <div class="subtitle">Professor, Department of Metallurgical and Materials Engineering<br>
+      Atilim University, Ankara, Türkiye</div>
+      <div class="links">
+        <a href="mailto:jongee.park@atilim.edu.tr">Email</a>
+        <a href="https://scholar.google.com/citations?user=1CMS4nkAAAAJ" target="_blank">Google Scholar</a>
+        <a href="https://orcid.org/0000-0003-1415-6906" target="_blank">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Jongee-Park" target="_blank">ResearchGate</a>
+        <a href="https://www.linkedin.com/in/jongee-park-0a04253b/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </header>
 
-<h3>Research Areas</h3>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+  </nav>
 
-<div class="research">
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a Professor in the Department of Metallurgical and Materials Engineering at
+      <a href="https://www.atilim.edu.tr/en" target="_blank">Atilim University</a>, Ankara, Türkiye.
+      My research focuses on <b>photocatalytic materials</b>, <b>dental and bio-ceramics</b>, and
+      <b>first-principles (DFT) computational studies</b> of energy materials such as battery anodes
+      and perovskite solar cells.
+    </p>
+    <p>
+      I received my Ph.D. from Middle East Technical University (METU) and my M.S. from
+      Hanyang University.
+    </p>
+  </section>
 
-<div class="card">
+  <!-- ==================== RESEARCH ==================== -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="plain">
+      <li><b>Photocatalysis</b> — TiO<sub>2</sub>-based and doped photocatalysts, heterostructures for solar-driven hydrogen production and water purification.</li>
+      <li><b>Computational materials science (DFT)</b> — 2D materials (TiC<sub>3</sub>) as anodes for Li-ion and Ca-ion batteries; perovskite solar cell materials.</li>
+      <li><b>Dental ceramics &amp; bioceramics</b> — apatite–wollastonite glass-ceramics, zirconia (YSZ), tribological and biological properties.</li>
+    </ul>
+  </section>
 
-<h4>Ceramic Materials</h4>
+  <!-- ==================== PUBLICATIONS ==================== -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <p style="color:var(--muted); font-size:15px;">
+      Selected publications. Full list on
+      <a href="https://scholar.google.com/citations?user=1CMS4nkAAAAJ" target="_blank">Google Scholar</a>.
+    </p>
 
-<ul>
-<li>Ceramic Processing</li>
-<li>Functional Ceramics</li>
-<li>Dental Ceramics</li>
-<li>Photocatalysis</li>
-</ul>
+    <h3 class="year">2026</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">A benchmark of expert-level academic questions to assess AI capabilities</span>
+        <span class="pub-authors">L. Phan, A. Gatti, et al. (incl. <span class="me">J. Park</span>)</span>
+        <span class="pub-venue">Nature, 649(8099), 1139–1146 (2026)</span>
+      </li>
+    </ol>
+
+    <h3 class="year">2025</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">First-principles investigation of Kaolinite/YSZ heterostructure for solar-driven photocatalytic hydrogen production</span>
+        <span class="pub-authors"><span class="me">J. Park</span>, E. Yu, S. A. Fatima</span>
+        <span class="pub-venue">International Journal of Hydrogen Energy, 173 (2025)</span>
+      </li>
+    </ol>
+
+    <h3 class="year">2024</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">Computational analysis of TiC<sub>3</sub> as a high-efficiency anode for calcium-ion batteries</span>
+        <span class="pub-authors"><span class="me">J. Park</span>, S. A. Fatima</span>
+        <span class="pub-venue">Journal of Energy Storage, 98 (2024)</span>
+      </li>
+      <li>
+        <span class="pub-title">Two-dimensional carbon-rich titanium carbide (TiC<sub>3</sub>)</span>
+        <span class="pub-authors">S. A. Fatima, <span class="me">J. Park</span></span>
+        <span class="pub-venue">Applied Surface Science, 659 (2024)</span>
+      </li>
+      <li>
+        <span class="pub-title">Computational insight of lithium adsorption in bilayer TiC<sub>3</sub></span>
+        <span class="pub-authors"><span class="me">J. Park</span>, S. A. Fatima</span>
+        <span class="pub-venue">Electrochimica Acta, 477 (2024)</span>
+      </li>
+    </ol>
+
+    <h3 class="year">2023</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">A DFT study of TiC<sub>3</sub> as anode material for Li-ion batteries</span>
+        <span class="pub-authors"><span class="me">J. Park</span>, S. A. Fatima</span>
+        <span class="pub-venue">Applied Surface Science, 638 (2023)</span>
+      </li>
+      <li>
+        <span class="pub-title">Inorganic hole transport materials in perovskite solar cells</span>
+        <span class="pub-authors">S. Sajid, S. Alzahmi, I. B. Salem, <span class="me">J. Park</span>, I. M. Obaidat</span>
+        <span class="pub-venue">Materials Today Energy, 37 (2023)</span>
+      </li>
+      <li>
+        <span class="pub-title">Lead-free perovskite homojunction-based HTM-free solar cells</span>
+        <span class="pub-authors">S. Sajid, S. Alzahmi, I. B. Salem, <span class="me">J. Park</span>, I. M. Obaidat</span>
+        <span class="pub-venue">Nanomaterials, 13(6) (2023)</span>
+      </li>
+    </ol>
+
+    <h3 class="year">2020</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">Synthesis of α-Fe<sub>2</sub>O<sub>3</sub>/TiO<sub>2</sub> heterogeneous composites</span>
+        <span class="pub-authors">A. Bouziani, <span class="me">J. Park</span>, A. Ozturk</span>
+        <span class="pub-venue">Journal of Photochemistry and Photobiology A: Chemistry, 400 (2020)</span>
+      </li>
+      <li>
+        <span class="pub-title">Preparation and photocatalytic activity of g-C<sub>3</sub>N<sub>4</sub>/TiO<sub>2</sub> heterojunctions</span>
+        <span class="pub-authors">P. Gündoğmuş, <span class="me">J. Park</span>, A. Ozturk</span>
+        <span class="pub-venue">Ceramics International, 46(13) (2020)</span>
+      </li>
+      <li>
+        <span class="pub-title">Mechanical properties of B<sub>4</sub>C–SiC composites</span>
+        <span class="pub-authors">S. M. So, W. H. Choi, K. H. Kim, et al.</span>
+        <span class="pub-venue">Ceramics International, 46(7) (2020)</span>
+      </li>
+    </ol>
+
+    <!-- ---------- Earlier publications (collapsed) ---------- -->
+    <details>
+      <summary>Earlier Publications (Before 2020)</summary>
+
+      <h3 class="year">2019</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Synthesis and enhanced photocatalytic activity of nitrogen-doped TiO<sub>2</sub></span>
+          <span class="pub-authors">N. Erdogan, A. Bouziani, <span class="me">J. Park</span>, et al.</span>
+          <span class="pub-venue">Journal of Photochemistry and Photobiology A: Chemistry, 377 (2019)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2018</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Facile synthesis of CsPbBr<sub>3</sub>/PbSe composite clusters</span>
+          <span class="pub-authors">T. P. Nguyen, A. Ozturk, <span class="me">J. Park</span>, et al.</span>
+          <span class="pub-venue">Science and Technology of Advanced Materials, 19(1) (2018)</span>
+        </li>
+        <li>
+          <span class="pub-title">A newly constructed photoactive system, Fe(III)-C/N-Bi<sub>2</sub>O<sub>3</sub></span>
+          <span class="pub-authors">H. Sudrajat, S. Hartuti, <span class="me">J. Park</span></span>
+          <span class="pub-venue">Journal of Alloys and Compounds, 748 (2018)</span>
+        </li>
+        <li>
+          <span class="pub-title">Production and properties of tooth-colored yttria-stabilized zirconia (YSZ) ceramics</span>
+          <span class="pub-authors">M. Kaplan, <span class="me">J. Park</span>, S. Y. Kim, A. Ozturk</span>
+          <span class="pub-venue">Ceramics International, 44(2) (2018)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2017</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">MoS<sub>2</sub>-nanosheet/graphene-oxide composite hole injection layer</span>
+          <span class="pub-authors">M. Park, T. P. Nguyen, K. S. Choi, <span class="me">J. Park</span>, et al.</span>
+          <span class="pub-venue">Electronic Materials Letters, 13(4) (2017)</span>
+        </li>
+        <li>
+          <span class="pub-title">Mechanical and biological properties of Al<sub>2</sub>O<sub>3</sub>/TiO<sub>2</sub> co-doped zirconia</span>
+          <span class="pub-authors">O. Agac, M. Gozutok, H. T. Sasmazel, A. Ozturk, <span class="me">J. Park</span></span>
+          <span class="pub-venue">Ceramics International, 43(13) (2017)</span>
+        </li>
+        <li>
+          <span class="pub-title">Control of crystal growth shape in CH<sub>3</sub>NH<sub>3</sub>PbBr<sub>3</sub> perovskite</span>
+          <span class="pub-authors">Q. V. Le, J. W. Shin, J. H. Jung, <span class="me">J. Park</span>, et al.</span>
+          <span class="pub-venue">Journal of Nanoscience and Nanotechnology, 17(11) (2017)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2016</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Hydrothermal synthesis of 3D TiO<sub>2</sub> nanostructures using nitric acid</span>
+          <span class="pub-authors">N. Erdogan, A. Ozturk, <span class="me">J. Park</span></span>
+          <span class="pub-venue">Ceramics International, 42(5) (2016)</span>
+        </li>
+        <li>
+          <span class="pub-title">Synthesis and enhanced photocatalytic activity of molybdenum/iron/nitrogen co-doped titania</span>
+          <span class="pub-authors">N. Erdogan, <span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Ceramics International, 42(15) (2016)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2015</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Effect of initial water content on photocatalytic properties of TiO<sub>2</sub></span>
+          <span class="pub-authors">L. Agartan, D. Kapusuz, <span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Ceramics International, 41(10) (2015)</span>
+        </li>
+        <li>
+          <span class="pub-title">Synthesis and characterization of hydrothermally grown potassium titanate nanowires</span>
+          <span class="pub-authors">D. Kapusuz, Y. E. Kalay, <span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Journal of Ceramic Processing Research, 16(3) (2015)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2013</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Sol–gel synthesis and photocatalytic activity of B and Zr co-doped TiO<sub>2</sub></span>
+          <span class="pub-authors">D. Kapusuz, <span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Journal of Physics and Chemistry of Solids, 74(7) (2013)</span>
+        </li>
+        <li>
+          <span class="pub-title">Silver-loaded TiO<sub>2</sub> powders prepared through mechanical ball milling</span>
+          <span class="pub-authors">B. Aysin, A. Ozturk, <span class="me">J. Park</span></span>
+          <span class="pub-venue">Ceramics International, 39(6) (2013)</span>
+        </li>
+        <li>
+          <span class="pub-title">Boron and zirconium co-doped TiO<sub>2</sub> powders</span>
+          <span class="pub-authors">T. Tokmakci, A. Ozturk, <span class="me">J. Park</span></span>
+          <span class="pub-venue">Ceramics International, 39(5) (2013)</span>
+        </li>
+        <li>
+          <span class="pub-title">Effect of H<sub>2</sub>O/TEOT ratio on photocatalytic activity of sol–gel TiO<sub>2</sub></span>
+          <span class="pub-authors">L. Agartan, D. Kapusuz, <span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Nanomaterials and Energy, 2(6) (2013)</span>
+        </li>
+        <li>
+          <span class="pub-title">Bioactivity of apatite–wollastonite glass-ceramics</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Surface Review and Letters, 20(1) (2013)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2010</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Tribological behavior of alumina-added apatite–wollastonite glass-ceramics</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, S. H. You, D. W. Shin, A. Ozturk</span>
+          <span class="pub-venue">Materials Chemistry and Physics, 124(1) (2010)</span>
+        </li>
+        <li>
+          <span class="pub-title">Photocatalytic activity of hydroxyapatite-precipitated potassium titanate whiskers</span>
+          <span class="pub-authors"><span class="me">J. Park</span></span>
+          <span class="pub-venue">Journal of Alloys and Compounds, 492(1–2) (2010)</span>
+        </li>
+        <li>
+          <span class="pub-title">Production and properties of apatite–wollastonite ceramics</span>
+          <span class="pub-authors">C. Vakifahmetoglu, <span class="me">J. Park</span>, F. Korkusuz, et al.</span>
+          <span class="pub-venue">Interceram, 59(5) (2010)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2009</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Friction and wear behavior of selected dental ceramics</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, G. Pekkan, A. Ozturk</span>
+          <span class="pub-venue">Surface Review and Letters, 16(5) (2009)</span>
+        </li>
+        <li>
+          <span class="pub-title">Preparation of a transparent hydrophilic TiO<sub>2</sub> thin film photocatalyst</span>
+          <span class="pub-authors">H. Y. Chun, S. S. Park, S. H. You, et al.</span>
+          <span class="pub-venue">Journal of Ceramic Processing Research, 10(2) (2009)</span>
+        </li>
+        <li>
+          <span class="pub-title">Production and properties of apatite–wollastonite ceramics for biomedical applications</span>
+          <span class="pub-authors">C. Vakifahmetoglu, <span class="me">J. Park</span>, F. Korkusuz, et al.</span>
+          <span class="pub-venue">Interceram, 58(2–3) (2009)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2008</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Effect of TiO<sub>2</sub> addition on crystallization and tribological properties of MgO–CaO–SiO<sub>2</sub>–P<sub>2</sub>O<sub>5</sub>–F glasses</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Thermochimica Acta, 470(1–2) (2008)</span>
+        </li>
+      </ol>
+
+      <h3 class="year">2007</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Tribological properties of MgO–CaO–SiO<sub>2</sub>–P<sub>2</sub>O<sub>5</sub>–F-based glass-ceramic for dental applications</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, A. Ozturk</span>
+          <span class="pub-venue">Materials Letters, 61(8–9) (2007)</span>
+        </li>
+        <li>
+          <span class="pub-title">Wear of MgO–CaO–SiO<sub>2</sub>–P<sub>2</sub>O<sub>5</sub>–F-based glass-ceramics compared to dental ceramics</span>
+          <span class="pub-authors"><span class="me">J. Park</span>, G. Pekkan, A. Ozturk</span>
+          <span class="pub-venue">Advances in Materials Science and Engineering, 2007(1)</span>
+        </li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- ==================== EDUCATION ==================== -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="item">
+      <b>Ph.D., Metallurgical and Materials Engineering</b><br>
+      <span class="when">Middle East Technical University (METU), Ankara, Türkiye</span>
+    </div>
+    <div class="item">
+      <b>M.S., Inorganic Materials Engineering</b><br>
+      <span class="when">Hanyang University, Seoul, Korea</span>
+    </div>
+    <div class="item">
+      <b>B.S., Inorganic Materials Engineering</b><br>
+      <span class="when">Hanyang University, Seoul, Korea</span>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Jongee Park · Atilim University, Ankara, Türkiye
+  </footer>
 
 </div>
-
-<div class="card">
-
-<h4>Density Functional Theory (DFT)</h4>
-
-<ul>
-<li>First-Principles Calculations</li>
-<li>Electronic Structure</li>
-<li>Charge Transfer</li>
-<li>Battery Materials</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h4>AI for Materials Science</h4>
-
-<ul>
-<li>Materials Informatics</li>
-<li>Machine Learning</li>
-<li>Generative AI</li>
-<li>AI-assisted Materials Discovery</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h4>AI for Korean Studies</h4>
-
-<ul>
-<li>AI-assisted Korean Studies</li>
-<li>Digital Humanities</li>
-<li>Korean Language Education</li>
-<li>Large Language Models</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h3>About</h3>
-
-<p>
-
-Welcome to my academic homepage.
-This website introduces my research, publications,
-teaching, and ongoing projects.
-
-</p>
-
-</section>
-
-</div>
-
-<footer>
-
-© 2026 Prof. Jongee Park
-
-</footer>
-
 </body>
-
 </html>
